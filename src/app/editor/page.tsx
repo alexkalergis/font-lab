@@ -2,6 +2,7 @@
 
 import { useState, useCallback, useRef } from "react";
 import * as opentype from "opentype.js";
+import { Type } from "lucide-react";
 import GlyphGrid from "@/components/GlyphGrid";
 import GlyphCanvas from "@/components/GlyphCanvas";
 import ControlPanel from "@/components/ControlPanel";
@@ -150,7 +151,7 @@ export default function Home() {
       <header className="flex items-center justify-between px-4 h-12 border-b border-white/5 bg-[#111] shrink-0">
         <div className="flex items-center gap-3">
           <div className="w-6 h-6 rounded-md bg-white flex items-center justify-center">
-            <span className="text-black font-bold text-[11px]">F</span>
+            <Type className="w-3.5 h-3.5 text-black" strokeWidth={2.5} />
           </div>
           <span className="text-sm font-medium">Font Lab</span>
           <span className="text-white/20 mx-1">/</span>
