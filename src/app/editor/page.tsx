@@ -148,37 +148,37 @@ export default function Home() {
   return (
     <div className="flex flex-col h-screen overflow-hidden">
       {/* Header */}
-      <header className="flex items-center justify-between px-4 h-12 border-b border-white/5 bg-[#111] shrink-0">
-        <div className="flex items-center gap-3">
-          <div className="w-6 h-6 rounded-md bg-white flex items-center justify-center">
+      <header className="flex items-center justify-between px-3 sm:px-4 h-11 sm:h-12 border-b border-white/5 bg-[#111] shrink-0">
+        <div className="flex items-center gap-2 sm:gap-3 min-w-0">
+          <div className="w-6 h-6 rounded-md bg-white flex items-center justify-center shrink-0">
             <Type className="w-3.5 h-3.5 text-black" strokeWidth={2.5} />
           </div>
-          <span className="text-sm font-medium">Font Lab</span>
-          <span className="text-white/20 mx-1">/</span>
-          <span className="text-sm text-white/50">{project.fontName}</span>
+          <span className="text-sm font-medium hidden sm:inline">Font Lab</span>
+          <span className="text-white/20 mx-0.5 sm:mx-1 hidden sm:inline">/</span>
+          <span className="text-sm text-white/50 truncate">{project.fontName}</span>
         </div>
-        <div className="flex items-center gap-2">
+        <div className="flex items-center gap-1.5 sm:gap-2 shrink-0">
           <button
             onClick={() => {
               setProject(null);
               setSelectedGlyphIndex(null);
             }}
-            className="text-xs text-white/40 hover:text-white/70 px-3 py-1.5 rounded-md hover:bg-white/5 transition-colors"
+            className="text-xs text-white/40 hover:text-white/70 px-2 sm:px-3 py-1.5 rounded-md hover:bg-white/5 transition-colors"
           >
-            New Font
+            New
           </button>
           <button
             onClick={() => setShowExportModal(true)}
-            className="text-xs bg-white text-black px-4 py-1.5 rounded-md font-medium hover:bg-white/90 transition-colors"
+            className="text-xs bg-white text-black px-3 sm:px-4 py-1.5 rounded-md font-medium hover:bg-white/90 transition-colors"
           >
             Export
           </button>
         </div>
       </header>
 
-      <div className="flex flex-1 overflow-hidden">
+      <div className="flex flex-col md:flex-row flex-1 overflow-hidden">
         {/* Left: Glyph Grid */}
-        <aside className="w-64 border-r border-white/5 overflow-y-auto shrink-0 bg-[#0e0e0e]">
+        <aside className="w-full md:w-56 lg:w-64 border-b md:border-b-0 md:border-r border-white/5 overflow-y-auto shrink-0 bg-[#0e0e0e] max-h-[30vh] md:max-h-none">
           <div className="p-3 border-b border-white/5">
             <p className="text-[10px] uppercase tracking-widest text-white/30">
               Glyphs &middot; {project.originalFont.glyphs.length}
@@ -193,7 +193,7 @@ export default function Home() {
         </aside>
 
         {/* Center: Canvas + Preview */}
-        <div className="flex-1 flex flex-col overflow-hidden">
+        <div className="flex-1 flex flex-col overflow-hidden min-h-0">
           {selectedGlyphIndex !== null ? (
             <GlyphCanvas
               font={project.originalFont}
@@ -214,7 +214,7 @@ export default function Home() {
         </div>
 
         {/* Right: Controls */}
-        <aside className="w-60 border-l border-white/5 shrink-0 bg-[#0e0e0e] overflow-y-auto">
+        <aside className="w-full md:w-52 lg:w-60 border-t md:border-t-0 md:border-l border-white/5 shrink-0 bg-[#0e0e0e] overflow-y-auto max-h-[35vh] md:max-h-none">
           <div className="p-3 border-b border-white/5">
             <p className="text-[10px] uppercase tracking-widest text-white/30">Controls</p>
           </div>
@@ -231,8 +231,8 @@ export default function Home() {
 
       {/* Export Modal */}
       {showExportModal && (
-        <div className="fixed inset-0 bg-black/60 flex items-center justify-center z-50">
-          <div className="bg-[#1a1a1a] rounded-xl border border-white/10 p-6 w-96">
+        <div className="fixed inset-0 bg-black/60 flex items-center justify-center z-50 px-4">
+          <div className="bg-[#1a1a1a] rounded-xl border border-white/10 p-5 sm:p-6 w-full max-w-sm">
             <h2 className="text-sm font-medium mb-4">Export Font</h2>
             <label className="text-[10px] uppercase tracking-widest text-white/40 mb-2 block">
               Font Name
