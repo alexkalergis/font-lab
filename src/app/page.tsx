@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Type, ScanSearch, Pencil, ArrowRight } from "lucide-react";
+import { Type, ScanSearch, Pencil, ArrowRight, Download } from "lucide-react";
 
 export default function Landing() {
   return (
@@ -105,9 +105,8 @@ export default function Landing() {
 
             {/* Font Inspector card */}
             <a
-              href="https://github.com/alexkalergis/font-inspector"
-              target="_blank"
-              rel="noopener noreferrer"
+              href="/font-inspector.zip"
+              download
               className="group relative border border-white/[0.06] rounded-2xl p-6 hover:border-white/15 transition-all hover:bg-white/[0.02]"
             >
               <div className="w-10 h-10 rounded-xl bg-white/5 flex items-center justify-center mb-4">
@@ -130,7 +129,7 @@ export default function Landing() {
                   </span>
                 ))}
               </div>
-              <ArrowRight className="absolute top-6 right-6 w-4 h-4 text-white/10 group-hover:text-white/40 transition-colors" />
+              <Download className="absolute top-6 right-6 w-4 h-4 text-white/10 group-hover:text-white/40 transition-colors" />
             </a>
           </div>
         </div>
